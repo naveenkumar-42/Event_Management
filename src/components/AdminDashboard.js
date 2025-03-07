@@ -16,7 +16,6 @@ const AdminDashboard = () => {
   const [events, setEvents] = useState([]);
   const [editingEvent, setEditingEvent] = useState(null);
 
-  // Fetch Events
   useEffect(() => {
     const fetchEvents = async () => {
       const eventCollection = await getDocs(collection(db, "events"));
@@ -25,7 +24,6 @@ const AdminDashboard = () => {
     fetchEvents();
   }, []);
 
-  // Add or Update Event
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!eventName || !eventDate || !eventTime || !eventDesc || !eventLink || !eventLocation) {
@@ -57,7 +55,6 @@ const AdminDashboard = () => {
     }
   };
 
-  // Delete Event
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "events", id));
     setEvents(events.filter(event => event.id !== id));
@@ -66,68 +63,77 @@ const AdminDashboard = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Admin Dashboard</h2>
-      <h2>{editingEvent ? "Edit Event" : "Add Event"}</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label>Event Name</label>
-          <input type="text" className="form-control" value={eventName} onChange={(e) => setEventName(e.target.value)} required />
+      <h2 className="text-center">Admin Dashboard</h2>
+      <div className="row mt-4">
+        {/* Left Column - Add/Edit Event */}
+        <div className="col-md-6">
+          <h3>{editingEvent ? "Edit Event" : "Add Event"}</h3>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label>Event Name</label>
+              <input type="text" className="form-control" value={eventName} onChange={(e) => setEventName(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+              <label>Event Date</label>
+              <input type="date" className="form-control" value={eventDate} onChange={(e) => setEventDate(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+              <label>Event Time</label>
+              <input type="time" className="form-control" value={eventTime} onChange={(e) => setEventTime(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+              <label>Event Location</label>
+              <input type="text" className="form-control" value={eventLocation} onChange={(e) => setEventLocation(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+              <label>Event Category</label>
+              <select className="form-control" value={eventCategory} onChange={(e) => setEventCategory(e.target.value)} required>
+                <option>Workshop</option>
+                <option>Seminar</option>
+                <option>Sports</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div className="mb-3">
+              <label>Description</label>
+              <textarea className="form-control" value={eventDesc} onChange={(e) => setEventDesc(e.target.value)} required />
+            </div>
+            <div className="mb-3">
+              <label>Event Link</label>
+              <input type="url" className="form-control" value={eventLink} onChange={(e) => setEventLink(e.target.value)} required />
+            </div>
+            <button type="submit" className="btn btn-success">{editingEvent ? "Update Event" : "Add Event"}</button>
+          </form>
         </div>
-        <div className="mb-3">
-          <label>Event Date</label>
-          <input type="date" className="form-control" value={eventDate} onChange={(e) => setEventDate(e.target.value)} required />
+
+        {/* Right Column - Event List */}
+        <div className="col-md-6">
+          <h3>Event List</h3>
+          <table className="table table-bordered mt-3">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {events.map((event) => (
+                <tr key={event.id}>
+                  <td>{event.eventName}</td>
+                  <td>{event.eventCategory}</td>
+                  <td>{event.eventDate}</td>
+                  <td>
+                    <Link to={`/admin/edit/${event.id}`} className="btn btn-warning me-2">Edit</Link>
+                    <button onClick={() => handleDelete(event.id)} className="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div className="mb-3">
-          <label>Event Time</label>
-          <input type="time" className="form-control" value={eventTime} onChange={(e) => setEventTime(e.target.value)} required />
-        </div>
-        <div className="mb-3">
-          <label>Event Location</label>
-          <input type="text" className="form-control" value={eventLocation} onChange={(e) => setEventLocation(e.target.value)} required />
-        </div>
-        <div className="mb-3">
-          <label>Event Category</label>
-          <select className="form-control" value={eventCategory} onChange={(e) => setEventCategory(e.target.value)} required>
-            <option>Workshop</option>
-            <option>Seminar</option>
-            <option>Sports</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div className="mb-3">
-          <label>Description</label>
-          <textarea className="form-control" value={eventDesc} onChange={(e) => setEventDesc(e.target.value)} required />
-        </div>
-        <div className="mb-3">
-          <label>Event Link</label>
-          <input type="url" className="form-control" value={eventLink} onChange={(e) => setEventLink(e.target.value)} required />
-        </div>
-        <button type="submit" className="btn btn-success">{editingEvent ? "Update Event" : "Add Event"}</button>
-      </form>
-      <h3 className="mt-5">Event List</h3>
-      <table className="table table-bordered mt-3">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {events.map((event) => (
-            <tr key={event.id}>
-              <td>{event.eventName}</td>
-              <td>{event.eventCategory}</td>
-              <td>{event.eventDate}</td>
-              <td>
-                <Link to={`/admin/edit/${event.id}`} className="btn btn-warning me-2">Edit</Link>
-                <button onClick={() => handleDelete(event.id)} className="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      </div>
     </div>
   );
 };
