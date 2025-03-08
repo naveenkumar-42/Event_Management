@@ -1,0 +1,99 @@
+/* Center the login container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Style the card */
+.login-card {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title styling */
+.login-title {
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+/* Text styling */
+.login-text {
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* OR text */
+.or-text {
+  font-size: 14px;
+  color: #777;
+  margin: 10px 0;
+}
+
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input fields */
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Login Button */
+.login-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Login Button hover */
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Google Sign-In Button */
+.google-signin-btn {
+  background-color: #db4437;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Google icon */
+.google-signin-btn i {
+  font-size: 18px;
+}
+
+/* Button hover effect */
+.google-signin-btn:hover {
+  background-color: #c1351d;
+}

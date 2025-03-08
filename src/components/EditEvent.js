@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useNavigate, useParams } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/EditEvent.css";
 
 const EditEvent = () => {
   const { id } = useParams();
@@ -48,43 +48,43 @@ const EditEvent = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="edit-event-container">
       <h2>Edit Event</h2>
-      <form onSubmit={handleUpdate}>
-        <div className="mb-3">
+      <form onSubmit={handleUpdate} className="edit-event-form">
+        <div className="form-group">
           <label>Event Name</label>
-          <input type="text" className="form-control" value={eventData.eventName} onChange={(e) => setEventData({ ...eventData, eventName: e.target.value })} required />
+          <input type="text" value={eventData.eventName} onChange={(e) => setEventData({ ...eventData, eventName: e.target.value })} required />
         </div>
-        <div className="mb-3">
+        <div className="form-group">
           <label>Event Date</label>
-          <input type="date" className="form-control" value={eventData.eventDate} onChange={(e) => setEventData({ ...eventData, eventDate: e.target.value })} required />
+          <input type="date" value={eventData.eventDate} onChange={(e) => setEventData({ ...eventData, eventDate: e.target.value })} required />
         </div>
-        <div className="mb-3">
+        <div className="form-group">
           <label>Event Time</label>
-          <input type="time" className="form-control" value={eventData.eventTime} onChange={(e) => setEventData({ ...eventData, eventTime: e.target.value })} required />
+          <input type="time" value={eventData.eventTime} onChange={(e) => setEventData({ ...eventData, eventTime: e.target.value })} required />
         </div>
-        <div className="mb-3">
+        <div className="form-group">
           <label>Event Location</label>
-          <input type="text" className="form-control" value={eventData.eventLocation} onChange={(e) => setEventData({ ...eventData, eventLocation: e.target.value })} required />
+          <input type="text" value={eventData.eventLocation} onChange={(e) => setEventData({ ...eventData, eventLocation: e.target.value })} required />
         </div>
-        <div className="mb-3">
+        <div className="form-group">
           <label>Event Category</label>
-          <select className="form-control" value={eventData.eventCategory} onChange={(e) => setEventData({ ...eventData, eventCategory: e.target.value })} required>
+          <select value={eventData.eventCategory} onChange={(e) => setEventData({ ...eventData, eventCategory: e.target.value })} required>
             <option>Workshop</option>
             <option>Seminar</option>
             <option>Sports</option>
             <option>Other</option>
           </select>
         </div>
-        <div className="mb-3">
+        <div className="form-group">
           <label>Description</label>
-          <textarea className="form-control" value={eventData.eventDesc} onChange={(e) => setEventData({ ...eventData, eventDesc: e.target.value })} required />
+          <textarea value={eventData.eventDesc} onChange={(e) => setEventData({ ...eventData, eventDesc: e.target.value })} required />
         </div>
-        <div className="mb-3">
+        <div className="form-group">
           <label>Event Link</label>
-          <input type="url" className="form-control" value={eventData.eventLink} onChange={(e) => setEventData({ ...eventData, eventLink: e.target.value })} required />
+          <input type="url" value={eventData.eventLink} onChange={(e) => setEventData({ ...eventData, eventLink: e.target.value })} required />
         </div>
-        <button type="submit" className="btn btn-primary">Update Event</button>
+        <button type="submit" className="update-btn">Update Event</button>
       </form>
     </div>
   );

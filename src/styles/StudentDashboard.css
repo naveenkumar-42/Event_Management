@@ -1,0 +1,155 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+.dashboard-container {
+  width: 100%;
+    display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+/* Hero Section */
+.hero-section {
+  background: url("https://source.unsplash.com/1600x900/?university,students") center/cover;
+  color: rgb(3, 3, 3);
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.headeru{
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  margin:0px 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Search Input */
+.search-input {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 400px;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  text-align: center;
+}
+
+.search-icon{
+  margin-left: 10px;
+
+}
+
+/* Events Section */
+.events-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Event Card */
+.event-card {
+  background: white;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px  #696969;
+}
+
+.event-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.event-category {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.event-details,
+.event-location {
+  font-size: 14px;
+  color: #555;
+}
+
+.event-description {
+  font-size: 14px;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Register Button */
+.register-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.register-btn:hover {
+  background-color: #0056b3;
+}
+
+/* No events */
+.no-events {
+  font-size: 18px;
+  color: #777;
+  margin-top: 20px;
+}
+
+.content {
+  flex: 1;
+}
+
+.footer {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-p{
+  color: white;
+}
