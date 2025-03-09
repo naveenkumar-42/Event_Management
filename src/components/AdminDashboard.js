@@ -83,10 +83,10 @@ const AdminDashboard = () => {
               </div>
               <input type="text" placeholder="Location" value={eventLocation} onChange={(e) => setEventLocation(e.target.value)} required />
               <select value={eventCategory} onChange={(e) => setEventCategory(e.target.value)} required>
-                <option>Workshop</option>
-                <option>Seminar</option>
-                <option>Sports</option>
-                <option>Other</option>
+                <option>Workshop </option>
+                <option>Seminar </option>
+                <option>Sports </option>
+                <option>Other </option>
               </select>
               <textarea placeholder="Description" value={eventDesc} onChange={(e) => setEventDesc(e.target.value)} required />
               <input type="url" placeholder="Event Link" value={eventLink} onChange={(e) => setEventLink(e.target.value)} required />
