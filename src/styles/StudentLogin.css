@@ -7,7 +7,6 @@
   background-color: #f8f9fa;
 }
 
-/* Style the card */
 .login-card {
   background: white;
   padding: 20px;
@@ -18,7 +17,6 @@
   text-align: center;
 }
 
-/* Title styling */
 .login-title {
   color: #007bff;
   margin-bottom: 15px;
