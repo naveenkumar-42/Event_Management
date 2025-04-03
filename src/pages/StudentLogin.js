@@ -16,8 +16,6 @@ const StudentLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
     navigate("/student-dashboard");
   };
 
@@ -25,6 +23,7 @@ const StudentLogin = () => {
     <div className="login-container">
       <div className="login-card">
         <h2 className="login-title">Welcome to Student Portal</h2>
+
         <p className="login-text">
           Sign in using your Google account to explore upcoming events, register for activities, and stay updated with all the latest happenings.
         </p>
