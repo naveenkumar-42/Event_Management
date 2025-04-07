@@ -32,12 +32,16 @@ const AdminLogin = () => {
 
         <form onSubmit={handleLogin} className="login-form">
           <div className="form-group">
+
             <label>Email</label>
             <input type="email" placeholder="Enter the Email" onChange={(e) => setEmail(e.target.value)} required />
+          
           </div>
           <div className="form-group">
+
             <label>Password</label>
             <input type="password" placeholder="Enter the Password" onChange={(e) => setPassword(e.target.value)} required />
+          
           </div>
           <button type="submit" className="login-btn">Login</button>
         </form>
